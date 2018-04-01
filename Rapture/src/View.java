@@ -47,7 +47,8 @@ class View implements java.util.Observer {
 		frame.add("Center", myTextField);
 
 		Panel panel 		= new Panel();
-		button	 		= new Button("PressMe");
+		button	 		= new Button("ClickMe");
+		
 		panel.add(button);
 		frame.add("South", panel);		
 

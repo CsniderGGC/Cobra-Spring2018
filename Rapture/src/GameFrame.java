@@ -32,7 +32,6 @@ import javax.swing.JTextPane;
 public class GameFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -55,13 +54,14 @@ public class GameFrame extends JFrame {
 	 */
 	public GameFrame() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\MP\\Desktop\\Cobra-Spring2018\\Icons\\bloody_hospital.jpg"));
-		setFont(new Font("Dialog", Font.BOLD, 18));
+		setFont(new Font("Dialog", Font.BOLD, 12));
 		setTitle("Medical Rapture");
 		setForeground(new Color(139, 0, 0));
 		setBackground(new Color(128, 128, 128));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 893, 520);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(47, 79, 79));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -147,13 +147,8 @@ public class GameFrame extends JFrame {
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 11, 382, 232);
-		panel_2.add(textField);
-		textField.setColumns(10);
-		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(152, 157, 7, 20);
+		textPane.setBounds(10, 11, 382, 231);
 		panel_2.add(textPane);
 		
 		JPanel panel_3 = new JPanel();

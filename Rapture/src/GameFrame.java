@@ -26,10 +26,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
-
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.JTextPane;
+import javax.swing.JScrollBar;
+import java.awt.ScrollPane;
+import java.awt.TextArea;
+import javax.swing.JScrollPane;
 
-public class GameFrame extends JFrame {
+public class Frame2 extends JFrame {
 
 	private JPanel contentPane;
 
@@ -40,7 +46,7 @@ public class GameFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GameFrame frame = new GameFrame();
+					Frame2 frame = new Frame2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +58,7 @@ public class GameFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GameFrame() {
+	public Frame2() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\MP\\Desktop\\Cobra-Spring2018\\Icons\\bloody_hospital.jpg"));
 		setFont(new Font("Dialog", Font.BOLD, 12));
 		setTitle("Medical Rapture");
@@ -66,7 +72,15 @@ public class GameFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
 		JButton btnNewButton = new JButton("Start New Game");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			
+			}
+			
+		});
 		btnNewButton.setBounds(62, 5, 134, 23);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		contentPane.add(btnNewButton);
@@ -147,9 +161,13 @@ public class GameFrame extends JFrame {
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(10, 11, 382, 231);
-		panel_2.add(textPane);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 382, 231);
+		panel_2.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
+		scrollPane.setViewportView(textArea);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(10, 303, 242, 167);
@@ -282,6 +300,8 @@ public class GameFrame extends JFrame {
 		panel_5.add(btnUtilize);
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String str = "Hello world.................";
+				textArea.append("\n" + str);
 			}
 		});
 	}

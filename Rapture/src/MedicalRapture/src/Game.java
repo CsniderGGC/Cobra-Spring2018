@@ -12,19 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class Game {
+public class Game<choiceButtonPanel> {
 	
 	JFrame window;
 	Container con;
-	JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
+	JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel, roomPanel;
 	JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
 	Font titleFont = new Font("Times New Roman", Font.PLAIN, 120);
-	JButton startButton, choice1, choice2, choice3, choice4, choice5;
+	JButton startButton, room1Button, choice1, choice2, choice3, choice4, choice5, choice6;
 	Font normal = new Font("Times New Roman", Font.PLAIN, 25);
 	Font medium = new Font("Times New Roman", Font.PLAIN, 35);
 	Font small = new Font("Times New Roman", Font.PLAIN, 15);
 	JTextArea mainTextArea;
-	int playerHP, monsterHP, playerDamage, monsterDamage, addItem;
+	int playerHP,newPlayerHP, monsterHP, playerDamage, monsterDamage, addItem;
 	String weapon, position, addWeapon, foundWeapon, foundItem;
 	
 	public ActionListener choiceHandler, tsHandler;
@@ -45,12 +45,14 @@ public class Game {
 		
 		TitleScreenHandler tsHandler = new TitleScreenHandler();
 		ChoiceHandler choiceHandler = new ChoiceHandler();
+		ChoiceHandler rommHandler = new ChoiceHandler();
+		
 		
 //========= PANEL FOR TITLE  =====================================================		
 		
 		titleNamePanel = new JPanel();
 		titleNamePanel.setBounds(200, 200, 900, 150);
-		titleNamePanel.setBackground(Color.BLACK);
+		titleNamePanel.setBackground(Color.RED);
 		titleNameLabel = new JLabel("Medical Rapture");
 		titleNameLabel.setForeground(Color.WHITE);
 		titleNameLabel.setFont(titleFont);
@@ -64,11 +66,15 @@ public class Game {
 //=========== START BUTTON =================================================		
 		
 		startButton = new JButton("Start");
+	
 		startButton.setBackground(Color.BLACK);
 		startButton.setForeground(Color.WHITE);
 		startButton.setFont(medium);
 		startButton.addActionListener(tsHandler);
 		startButton.setFocusPainted(false);
+	//	startButton.setActionCommand(foundItem);
+		
+
 		
 //=========== CONTAINER =====================================================		
 		
@@ -86,7 +92,7 @@ public class Game {
 		startButtonPanel.setVisible(false);
 		
 		mainTextPanel = new JPanel();
-		mainTextPanel.setBounds(200, 150, 900, 320);
+		mainTextPanel.setBounds(250, 150, 900, 350);
 		mainTextPanel.setBackground(Color.BLACK);
 		con.add(mainTextPanel);
 		
@@ -95,23 +101,37 @@ public class Game {
 		ChoiceHandler choiceHandler = new ChoiceHandler();
 		
 		
+		
 // ============= PANEL FOR TEXTAREA GAME SCREEN ====================================
 		
 		mainTextArea = new JTextArea();
-		mainTextArea.setBounds(200, 180, 900, 200);
-		mainTextArea.setBackground(Color.BLACK);
+		mainTextArea.setBounds(250, 180, 900, 350);
+		mainTextArea.setBackground(Color.RED);
 		mainTextArea.setForeground(Color.WHITE);
 		mainTextArea.setFont(normal);
 		mainTextArea.setLineWrap(true);
 		mainTextPanel.add(mainTextArea);
 		
 		
+//===== ROOMS PANNEL ============================================================
+	/*	roomPanel = new JPanel();
+		roomPanel.setBounds(1200, 250, 50, 20);
+		roomPanel.setBackground(Color.YELLOW);
+		roomPanel.setLayout(new GridLayout(6,1));
+		con.add(roomPanel);
+						
+	*/
+		
+		
 //================= CHOICE BUTTONS PANEL ===========================================================
 		choiceButtonPanel = new JPanel();
 		choiceButtonPanel.setBounds(450, 500, 400, 150);
 		choiceButtonPanel.setBackground(Color.BLACK);
-		choiceButtonPanel.setLayout(new GridLayout(5,1));
+		choiceButtonPanel.setLayout(new GridLayout(6,1));
 		con.add(choiceButtonPanel);
+		
+		
+		
 		
 //============ CHOICE BUTTONS ===================================================================		
 		choice1 = new JButton("Choice 1");
@@ -161,18 +181,28 @@ public class Game {
 		choice5.setFocusPainted(false);
 		choice5.addActionListener(choiceHandler);
 		choice5.setActionCommand("C5");
+		
+		choice6 = new JButton(" ");
+		choice6.setBackground(Color.BLACK);
+		choice6.setForeground(Color.WHITE);
+		choice6.setFont(normal);
+		choiceButtonPanel.add(choice6);
+		choice6.setFocusPainted(false);
+		choice6.addActionListener(choiceHandler);
+		choice6.setActionCommand("C6");
+
 
 		
 //======= PANEL FOR HP AND WEAPON =========================================
 		playerPanel = new JPanel();
-		playerPanel.setBounds(200, 50, 900, 50);
+		playerPanel.setBounds(250, 50, 900, 50);
 		playerPanel.setBackground(Color.BLUE);
 		playerPanel.setLayout(new GridLayout(1,4));
 		con.add(playerPanel);
 
 //======= HEALTHPOINT PANEL =====================================================		
 		
-		hpLabel = new JLabel("HP: ");
+		hpLabel = new JLabel("HP:");
 		hpLabel.setFont(normal);
 		hpLabel.setForeground(Color.WHITE);
 		playerPanel.add(hpLabel);
@@ -184,7 +214,7 @@ public class Game {
 		
 //======= WEAPON PANEL ==========================================================
 		
-		weaponLabel = new JLabel("Weapon: ");
+		weaponLabel = new JLabel("Weapon:");
 		weaponLabel.setFont(normal);
 		weaponLabel.setForeground(Color.WHITE);
 		playerPanel.add(weaponLabel);
@@ -251,11 +281,25 @@ public class Game {
 //============ ITEM ADDED METHOD ===========================================
 			public void addItem() {
 				position = "addItem";
-				//addItem = 5;
-				//foundItem = "Bottle of water";
-				playerHP = playerHP + 5;
+				newPlayerHP = playerHP +5;
 				mainTextArea.setText("" + foundItem + " added. \nYour HP has been recovered by 5.");
-				hpLabelNumber.setText("" + playerHP);
+				hpLabelNumber.setText("" + newPlayerHP);
+				
+				
+				choice1.setText("Continue");
+				choice2.setText("");
+				choice3.setText("");
+				choice4.setText("");
+				choice5.setText("");
+				
+				
+				
+			}
+			
+			public void addedItem() {
+				position = "addedItem";
+				mainTextArea.setText("You already added " + foundItem );
+				
 				choice1.setText("Continue");
 				choice2.setText("");
 				choice3.setText("");
@@ -270,7 +314,7 @@ public class Game {
 //============= ATTACK METHODS ================================================
 	public void attack() {
 		position = "attack";
-		mainTextArea.setText("Monster HP: " + monsterHP + "\n\n You must defeat monster to move on to next room.\n\n\nWhat do you do?");
+		mainTextArea.setText(  "\n\n Monster HP: "+ monsterHP + "\n\n\nATTACK or FLEE?");
 		choice1.setText("attack");
 		choice2.setText("flee");
 		choice3.setText("");
@@ -309,6 +353,20 @@ public class Game {
 		
 		choice1.setText("attack again");
 		choice2.setText("flee");
+		choice3.setText("");
+		choice4.setText("");
+		choice5.setText("");
+	}
+	
+	
+	public void monsterDead() {
+		position = "monsterDead";
+		
+		mainTextArea.setText("MONSTER IS DEAD !!!! You have defeated the monster.  " );
+		
+		
+		choice1.setText("Continue");
+		choice2.setText("");
 		choice3.setText("");
 		choice4.setText("");
 		choice5.setText("");
@@ -359,16 +417,73 @@ public class Game {
 	
 //======== HALL WAY METHODS ====================================================================================================================
 	
-		public void hallWay() {
-		position = "hallWay";
-		mainTextArea.setText("This is the hall way. \nDoor to your current room is lock. \nYou must go back to your starting room!!!");
-		choice1.setText("Go Back To Starting Room");
-		choice2.setText("");
-		choice3.setText("");
-		choice4.setText("");
-		choice5.setText("");
-		
+		public void roomMenu() {
+		position = "roomMenu";
+		mainTextArea.setText("Room 1: Patient Room. Clean Bed. One infected patient.  \nRoom 2: Patient Room. Pregnant woman and babie zombie. \nRoom 3: Patient Room \nRoom 4: Patient Room \nRoom 5: Patient Room  ");
+		choice1.setText("Room 1");
+		choice2.setText("Room 2");
+		choice3.setText("Room 3");
+		choice4.setText("Room 4");
+		choice5.setText("Room 5");
+		choice6.setText("Next Page");
 	}
+		
+		public void roomMenu2() {
+			position = "roomMenu2";
+			mainTextArea.setText("Room 6: \nRoom 7: \nRoom 8: \nRoom 9: \nRoom 10:  ");
+			choice1.setText("Room 6");
+			choice2.setText("Room 7");
+			choice3.setText("Room 8");
+			choice4.setText("Room 9");
+			choice5.setText("Room 10");
+			choice6.setText("Next Page");
+		}
+			
+		public void roomMenu3() {
+			position = "roomMenu3";
+			mainTextArea.setText("Room 11: \nRoom 12: \nRoom 13: \nRoom 14: \nRoom 15:  ");
+			choice1.setText("Room 11");
+			choice2.setText("Room 12");
+			choice3.setText("Room 13");
+			choice4.setText("Room 14");
+			choice5.setText("Room 15");
+			choice6.setText("Next Page");
+		}
+		
+		public void roomMenu4() {
+			position = "roomMenu4";
+			mainTextArea.setText("Room 16: \nRoom 17: \nRoom 18: \nRoom 19: \nRoom 20:  ");
+			choice1.setText("Room 16");
+			choice2.setText("Room 17");
+			choice3.setText("Room 18");
+			choice4.setText("Room 19");
+			choice5.setText("Room 20");
+			choice6.setText("Next Page");
+		}
+		
+		public void roomMenu5() {
+			position = "roomMenu5";
+			mainTextArea.setText("Room 21: \nRoom 22: \nRoom 23: \nRoom 24: \nRoom 25:  ");
+			choice1.setText("Room 21");
+			choice2.setText("Room 22");
+			choice3.setText("Room 23");
+			choice4.setText("Room 24");
+			choice5.setText("Room 25");
+			choice6.setText("Next Page");
+		}
+		
+		
+		public void roomMenu6() {
+			position = "roomMenu6";
+			mainTextArea.setText("Room 26: \nRoom 27: \nRoom 28: \nRoom 29: \nRoom 30:  ");
+			choice1.setText("Room 26");
+			choice2.setText("Room 27");
+			choice3.setText("Room 28");
+			choice4.setText("Room 29");
+			choice5.setText("Room 30");
+			choice6.setText("Rooms Menu");
+		}
+		
 		
 		
 //========= STARTING ROOM METHOD ===============================================================================================================
@@ -381,10 +496,11 @@ public class Game {
 				+ " room that contains a bed, tv and night stand next to the window. \n\n What is your choice?");
 		hpLabelNumber.setText("" + playerHP);
 		choice1.setText("Go to Next Room");
-		choice2.setText("Go to Hallway");
+		choice2.setText("Rooms Menu");
 		choice3.setText("");
 		choice4.setText("");
 		choice5.setText("");
+		choice6.setText("");
 	}
 	
 //============ ROOMS METHODS =====================================================================================================================	
@@ -399,10 +515,11 @@ public class Game {
 				+ "for help or proceed to the next room. \r\n" );
 		
 		choice1.setText("Go to Next Room");
-		choice2.setText("Go to Hallway");
-		choice3.setText("");
+		choice2.setText("Go to Previous Room");
+		choice3.setText("Rooms Menu");
 		choice4.setText("");
 		choice5.setText("");
+		choice6.setText("");
 		
 	}
 //------------------------------------------------------------------------------------------------------------------------------------	
@@ -417,9 +534,10 @@ public class Game {
 		
 		choice1.setText("Go to Next Room");
 		choice2.setText("Go to Previous Room");
-		choice3.setText("Go to Hallway");
+		choice3.setText("Rooms Menu");
 		choice4.setText("Examine Monster");
 		choice5.setText("");
+		choice6.setText("");
 		
 	}
 //-----------------------------------------------------------------------------------------------------------------------------
@@ -430,9 +548,10 @@ public class Game {
 		
 		choice1.setText("Go to Next Room");
 		choice2.setText("Go to Previous Room");
-		choice3.setText("Go to Hallway");
+		choice3.setText("Rooms Menu");
 		choice4.setText("Examine Item");
 		choice5.setText("Examine Weapon");
+		choice6.setText("");
 	
 	}
 	
@@ -499,53 +618,125 @@ public class Game {
 			case "playerStartingRoom":
 				switch(yourChoice) {
 			case "C1": room1(); break;
-			case "C2": hallWay(); break;
+			case "C2": roomMenu(); break;
 				
 			}
 			break;
-			case "hallWay":
+			case "roomMenu":
 				switch(yourChoice) {
-				case "C1": playerStartingRoom(); break;
+				case "C1": room1(); break;
+				case "C2": room2(); break;
+				case "C3": room3(); break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu2();break;
 				
 				}
 				break;
+			case "roomMenu2":
+				switch(yourChoice) {
+				case "C1": break;
+				case "C2": break;
+				case "C3": break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu3();break;
+				
+				}
+				break;
+				
+			case "roomMenu3":
+				switch(yourChoice) {
+				case "C1":  break;
+				case "C2":  break;
+				case "C3":  break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu4();break;
+				
+				}
+				break;
+				
+			case "roomMenu4":
+				switch(yourChoice) {
+				case "C1":  break;
+				case "C2":  break;
+				case "C3":  break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu5();break;
+				
+				}
+				break;
+				
+			case "roomMenu5":
+				switch(yourChoice) {
+				case "C1":  break;
+				case "C2":  break;
+				case "C3":  break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu6();break;
+				
+				}
+				break;
+				
+			case "roomMenu6":
+				switch(yourChoice) {
+				case "C1":  break;
+				case "C2":  break;
+				case "C3":  break;
+				case "C4":  break;
+				case "C5":  break;
+				case "C6":  roomMenu();break;
+				
+				}
+				break;
+				
 				
 //=========ROOM CASES ===========================================================
 				
 			case "room1":
 				switch(yourChoice) {
 				case "C1" : room2(); break;
-				case "C2" : hallWay(); break;
-				case "C3" : break;
+				case "C2" : playerStartingRoom(); break;
+				case "C3" : roomMenu();break;
 				case "C4" : break;
 				case "C5" : break;
+				case "C6" : break;
 				}
 				break;
 			case "room2":
 				switch(yourChoice) {
-				case "C1" : attack(); break;
+				case "C1" : room3(); break;
 				case "C2" : room1(); break;
-				case "C3" : hallWay(); break;
+				case "C3" : roomMenu(); break;
 				case "C4" : monster1();break;
+				case "C5" : break;
+				case "C6" : break;
 				}
 				break;
 			case "room3":
 				switch(yourChoice) {
 				case "C1" :  break;
 				case "C2" : room2();break;
-				case "C3" : hallWay(); break;
+				case "C3" : roomMenu(); break;
 				case "C4" : item1(); break;
 				case "C5" : item2(); break;
+				case "C6" : break;
 				}
 				break;
 				
 //========= ITEM CASES ================================================================================
 			case "item1":
 				switch(yourChoice) {
-				case "C1" : addItem(); break;
+				case "C1" : if(playerHP < newPlayerHP) {addedItem();}
+				else {addItem();}break;
 				case "C2" : room3();break;
 				case "C3" : break;
 				case "C4" : break;
+				case "C5" : break;
+				case "C6" : break;
 				}
 				break;	
 				
@@ -555,6 +746,8 @@ public class Game {
 				case "C2" : room3();break;
 				case "C3" : break;
 				case "C4" : break;
+				case "C5" : break;
+				case "C6" : break;
 				}
 				break;	
 				
@@ -584,7 +777,8 @@ public class Game {
 			
 			case "foundItem":
 				switch(yourChoice) {
-				case "C1" : addItem(); break;
+				case "C1" : addItem();
+					
 				case "C2" : room1(); break;
 				
 				}
@@ -599,6 +793,15 @@ public class Game {
 				
 				}
 				break;
+				
+			case "addedItem":
+				switch(yourChoice) {
+				case "C1" : room3(); break;
+				case "C2" : break;
+				
+				}
+				break;
+					
 				
 //===========  ATTACK CASE ========================================================================	
 				
@@ -646,6 +849,8 @@ public class Game {
 				}
 				break;
 				
+//============ MONSTER DEAD CASE ==========================================================
+			
 //===========  WIN CASE ========================================================================	
 				
 			case "win1":

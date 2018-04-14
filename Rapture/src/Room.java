@@ -1,6 +1,7 @@
-package MVC;
+package src;
 
 
+@SuppressWarnings("deprecation")
 public class Room extends java.util.Observable{
 
 

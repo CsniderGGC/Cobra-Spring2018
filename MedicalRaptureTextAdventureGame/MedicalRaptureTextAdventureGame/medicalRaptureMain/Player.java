@@ -1,10 +1,12 @@
 package medicalRaptureMain;
 
+
 public class Player extends Character {
 	public final int maxHp = 100;
 	public final int maxHit = 30;
 
 	private final String name;
+	item[] inventory = new item[18];
 
 	public Player(String name, int maxHP, int health, int maxHit) {
 		super(maxHP, health, maxHit);

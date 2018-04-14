@@ -3,6 +3,7 @@ package Model;
 public class Character {
 	protected int maxHP, health, maxHit;
 	protected String name;
+	
 
 	public Character( int maxHP, int health, int maxHit) {
 	}

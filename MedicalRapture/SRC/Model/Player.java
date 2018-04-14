@@ -37,8 +37,6 @@ public class Player extends Character {
 		return maxHit;
 	}
 
-	public void utilizeItem() {
-		health = health + healthPack;
-	}
+	
 
 }

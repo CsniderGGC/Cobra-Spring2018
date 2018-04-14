@@ -1,65 +1,105 @@
 package Model;
 
 public class Room {
-    
-	private  String id;
-    public  String name;
-    private String description;
+    	private static String id;
+	public static String name;
+    private static String description;
     Item item;
-    Monster monster;
-    private String exit;
+    Monster[] monsters = new Monster[5];
     
-    public int north;
-    public int east;
-    public int south;
-    public int west;
+    public String roomItems;
     
-    Room(String id, String name, String discription, Item item, Monster monster,int north, int south, int east, int west){
-    	
-    }
-    public Room(String name){
-        this.name = name;
-    }
     
-    public void setDescription(String description){
-        this.description = description;
-    }
+    public static int north;
+    public static int east;
+    public static int south;
+    public static int west;
+	
     
-    public String getDescription(){
-        return this.description;
+    public Room(String id, String name, String description, Item item, Monster[] monsters, int north,
+			int east, int south, int west) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.item = item;
+		this.monsters = monsters;
+		this.north = north;
+		this.east = east;
+		this.south = south;
+		this.west = west;
+	}
+    
+    public String searchRoom() {
+    	return roomItems;
     }
 
-	public String getId() {
-		return this.id;
+    public String getId() {
+		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getItem() {
-		return this.item;
+	public String getName() {
+		return name;
 	}
 
-	public void setItem(String item) {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
 		this.item = item;
 	}
 
-	public String getMonster() {
-		return this.monster;
+	public Monster[] getMonsters() {
+		return monsters;
 	}
 
-	public void setMonster(String monster) {
-		this.monster = monster;
+	public void setMonsters(Monster[] monsters) {
+		this.monsters = monsters;
 	}
 
-	public String getExit() {
-		return this.exit;
+	public int getNorth() {
+		return north;
 	}
 
-	public void setExit(String exit) {
-		this.exit = exit;
+
+	public int getEast() {
+		return east;
 	}
+
+
+	public int getSouth() {
+		return south;
+	}
+
+	
+
+	public int getWest() {
+		return west;
+	}
+
+	
+
+	
+    
+   
+
     
     
 }

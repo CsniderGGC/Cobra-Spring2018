@@ -7,7 +7,12 @@ public class Room {
     Item item;
     Monster[] monsters = new Monster[5];
     
-    public String roomItems;
+   
+
+
+// reply after searching the room
+	public String roomItems;
+    
     
     
     public static int north;
@@ -16,7 +21,7 @@ public class Room {
     public static int west;
 	
     
-    public Room(String id, String name, String description, Item item, Monster[] monsters, int north,
+    public Room(String id, String name, String description, Item item, Monster[] monsters, String roomItems,  int north,
 			int east, int south, int west) {
 		super();
 		this.id = id;
@@ -24,12 +29,21 @@ public class Room {
 		this.description = description;
 		this.item = item;
 		this.monsters = monsters;
+		this.roomItems = roomItems;
 		this.north = north;
 		this.east = east;
 		this.south = south;
 		this.west = west;
+		
 	}
     
+    public String getRoomItems() {
+		return roomItems;
+	}
+
+	public void setRoomItems(String roomItems) {
+		this.roomItems = roomItems;
+	}
     public String searchRoom() {
     	return roomItems;
     }

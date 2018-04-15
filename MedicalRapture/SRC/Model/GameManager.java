@@ -1,6 +1,7 @@
 package Model;
 
-public class GameManager {
+@SuppressWarnings("deprecation")
+public class GameManager extends java.util.Observable{
 public Room[] Map = new Room [32];
 public int playerLocation;
 Player player;
@@ -11,6 +12,9 @@ Player player;
 
 //move north
 public void moveNorth() {
+	System.out.println("Model     : counter = " + playerLocation);
+	setChanged();
+	notifyObservers(playerLocation);
 	if (Map[playerLocation].getNorth() != 0) {
 		playerLocation = Map[playerLocation].getNorth();
 	}
@@ -42,6 +46,7 @@ public void moveWest() {
 public String SearchRoom() {
 	return Map[playerLocation].getDescription();
 }
+
 //battle monster
 
 //examine room

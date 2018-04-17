@@ -8,11 +8,11 @@ Player player;
 
 
 
-//Navigation
+//Navigation 
 
 //move north
 public void moveNorth() {
-	System.out.println("Model     : counter = " + playerLocation);
+	System.out.println("Model- Player Location: Room " + playerLocation);
 	setChanged();
 	notifyObservers(playerLocation);
 	if (Map[playerLocation].getNorth() != 0) {
@@ -21,6 +21,9 @@ public void moveNorth() {
 }
 //move south
 public void moveSouth() {
+	System.out.println("Model- Player Location: Room " + playerLocation);
+	setChanged();
+	notifyObservers(playerLocation);
 	if (Map[playerLocation].getSouth() != 0) {
 		playerLocation = Map[playerLocation].getSouth();
 	}
@@ -55,8 +58,9 @@ public String SearchRoom() {
 //use item
 //Equip item
 //un-equip item
-
-
+//new game
+//save game
+//Quit game
 
 
 

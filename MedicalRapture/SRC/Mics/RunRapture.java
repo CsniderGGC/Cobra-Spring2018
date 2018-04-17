@@ -1,6 +1,7 @@
 package Mics;
 
-import Controller.Controller;
+import Controller.*;
+
 import Model.GameManager;
 import View.View;
 
@@ -33,12 +34,25 @@ public class RunRapture {
 			myController.addModel(myModel);
 			myController.addView(myView);
 			myController.initModel(start_value);
+			
+			EastController eastController = new EastController();
+			eastController.addModel(myModel);
+			eastController.addView(myView);
+			
+			SouthController southController = new SouthController();
+			southController.addModel(myModel);
+			southController.addView(myView);
+			
+			WestController westController = new WestController();
+			westController.addModel(myModel);
+			westController.addView(myView);
 
 			//tell View about Controller 
 			// a method addController(ActionListener controller), which attaches the controller as a listener to the button (called by the glue class RunMVC). 
-			myView.addController(myController);
-			
-
+			myView.addMoveNorth(myController);
+			myView.addMoveSouth(southController);
+			myView.addMoveEast(eastController);
+			myView.addMoveWest(westController);
 		} //RunMVC()
 
 }

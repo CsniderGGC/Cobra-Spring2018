@@ -11,7 +11,7 @@ public class Game {
         System.out.println("Welcome to the Medical Rapture Game");
         String name = userinterface.getTextFromPlayer("Enter your name?");
         
-        Player player = new Player(name);
+        Player player = new Player(name, 100, 100, 10);
         new PlayerGamePlay(userinterface, player).performRunThrough();
             
         userinterface.sendTextToConsole("Game finished");

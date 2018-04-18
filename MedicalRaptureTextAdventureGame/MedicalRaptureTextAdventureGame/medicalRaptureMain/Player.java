@@ -2,8 +2,8 @@ package medicalRaptureMain;
 
 
 public class Player extends Character {
-	public final int maxHp = 100;
-	public final int maxHit = 30;
+	public final static int maxHp = 100;
+	public final static int maxHit = 10;
 
 	private final String name;
 	item[] inventory = new item[18];

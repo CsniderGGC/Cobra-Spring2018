@@ -24,7 +24,7 @@ public class Game<choiceButtonPanel> {
 	Font medium = new Font("Times New Roman", Font.PLAIN, 35);
 	Font small = new Font("Times New Roman", Font.PLAIN, 15);
 	JTextArea mainTextArea;
-	int playerHP,newPlayerHP, monsterHP, playerDamage, monsterDamage, addItem;
+	int playerHP,newPlayerHP, monsterHP, monster1HP, monster2HP, monster3HP,monster4HP,monster5HP,monster6HP,monster7HP,monster8HP,playerDamage, monsterDamage, addItem;
 	String weapon, position, addWeapon, foundWeapon, foundItem;
 	
 	public ActionListener choiceHandler, tsHandler, iHandler;
@@ -316,7 +316,8 @@ public class Game<choiceButtonPanel> {
 	
 	public void playerSetup() {
 		playerHP = 100;
-		monsterHP = 50;
+		 monsterHP = 0;
+		
 		
 		weapon = "Bare Hand";
 		foundWeapon= "";
@@ -445,18 +446,7 @@ public class Game<choiceButtonPanel> {
 	}
 	
 	
-	public void monsterDead() {
-		position = "monsterDead";
-		
-		mainTextArea.setText("MONSTER IS DEAD !!!! You have defeated the monster.  " );
-		
-		
-		choice1.setText("Continue");
-		choice2.setText("");
-		choice3.setText("");
-		choice4.setText("");
-		choice5.setText("");
-	}
+	
 	
 	
 //========== WIN AND LOOSE METHODS ===============================================================
@@ -490,7 +480,7 @@ public class Game<choiceButtonPanel> {
 //========= GAME RESET SCREEN =====================================
 	public void gameReset() {
 	playerHP =100;
-	monsterHP = 50;
+	monsterHP =0;
 	position = "gameReset";
 	mainTextArea.setText("WELCOME TO MEDICAL RAPTURE!!!");
 	choice1.setText("Start Game");
@@ -505,7 +495,7 @@ public class Game<choiceButtonPanel> {
 	
 		public void roomMenu() {
 		position = "roomMenu";
-		mainTextArea.setText("Room 1: Patient Room. Clean Bed. One infected patient.  \nRoom 2: Patient Room. Pregnant woman and babie zombie. \nRoom 3: Patient Room \nRoom 4: Patient Room \nRoom 5: Patient Room  ");
+		mainTextArea.setText("Room 1: Patient Room.   \nRoom 2:  \nRoom 3:  \nRoom 4:  \nRoom 5:   ");
 		choice1.setText("Room 1");
 		choice2.setText("Room 2");
 		choice3.setText("Room 3");
@@ -608,6 +598,8 @@ public class Game<choiceButtonPanel> {
 		choice6.setText("");
 		
 	}
+	
+	
 //------------------------------------------------------------------------------------------------------------------------------------	
 	public void room2() {
 		
@@ -653,7 +645,7 @@ public class Game<choiceButtonPanel> {
 		choice1.setText("Go to Next Room");
 		choice2.setText("Go to Previous Room");
 		choice3.setText("Rooms Menu");
-		choice4.setText("Examine Item");
+		choice4.setText("Examine Monster");
 		choice5.setText("Examine Weapon");
 		choice6.setText("");
 		
@@ -1060,8 +1052,21 @@ public class Game<choiceButtonPanel> {
 				}
 	
 //========= MONSTERS ==================================================================
-	 
+				public void monsterDead() {
+					
+					position = "monsterDead";
+					mainTextArea.setText("Monster is DEAD");
+					
+					choice1.setText("Go Back");
+					choice2.setText("");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+				}
+				
 	public void monster1() {
+		monster1HP =30;
+		monsterHP = monster1HP;
 		position = "monster1";
 		mainTextArea.setText("Monster HP: " + monsterHP + "\n\nMonster is pregnant zombie and her babie zombie");
 		
@@ -1072,6 +1077,21 @@ public class Game<choiceButtonPanel> {
 		choice5.setText("");
 		
 	}
+	
+	public void monster2() {
+		monster2HP=50;
+		monsterHP = monster2HP;
+		position = "monster2";
+		mainTextArea.setText("Monster HP: " + monsterHP + "\n\nTechnician");
+		
+		choice1.setText("Go Back");
+		choice2.setText("Fight Monster");
+		choice3.setText("");
+		choice4.setText("");
+		choice5.setText("");
+		
+	}
+	
 	
 //========= ITEMS =====================================================================
 	public void item1() {
@@ -1180,11 +1200,11 @@ public class Game<choiceButtonPanel> {
 				
 			case "roomMenu4":
 				switch(yourChoice) {
-				case "C1":  break;
-				case "C2":  break;
-				case "C3":  break;
-				case "C4":  break;
-				case "C5":  break;
+				case "C1": room16(); break;
+				case "C2": room17(); break;
+				case "C3": room18(); break;
+				case "C4": room19(); break;
+				case "C5": room20(); break;
 				case "C6":  roomMenu5();break;
 				
 				}
@@ -1192,11 +1212,11 @@ public class Game<choiceButtonPanel> {
 				
 			case "roomMenu5":
 				switch(yourChoice) {
-				case "C1":  break;
-				case "C2":  break;
-				case "C3":  break;
-				case "C4":  break;
-				case "C5":  break;
+				case "C1": room21(); break;
+				case "C2": room22(); break;
+				case "C3": room23(); break;
+				case "C4": room24(); break;
+				case "C5": room25(); break;
 				case "C6":  roomMenu6();break;
 				
 				}
@@ -1204,11 +1224,11 @@ public class Game<choiceButtonPanel> {
 				
 			case "roomMenu6":
 				switch(yourChoice) {
-				case "C1":  break;
-				case "C2":  break;
-				case "C3":  break;
-				case "C4":  break;
-				case "C5":  break;
+				case "C1": room26(); break;
+				case "C2": room27(); break;
+				case "C3": room28(); break;
+				case "C4": room29(); break;
+				case "C5": break;
 				case "C6":  roomMenu();break;
 				
 				}
@@ -1229,10 +1249,12 @@ public class Game<choiceButtonPanel> {
 				break;
 			case "room2":
 				switch(yourChoice) {
-				case "C1" : room3(); break;
+				case "C1" : room3(); room4(); break;
 				case "C2" : room1(); break;
 				case "C3" : roomMenu(); break;
-				case "C4" : monster1(); break;
+				case "C4" : if(monster1HP >= 0 ) { monster1();}
+				
+							else { monsterDead();}; break;
 				case "C5" : break;
 				case "C6" : break;
 				}
@@ -1252,10 +1274,12 @@ public class Game<choiceButtonPanel> {
 				switch(yourChoice) {
 				case "C1" : room5(); break;
 				case "C2" : room3(); break;
-				case "C3" : roomMenu(); break;
-				case "C4" :  break;
+				case "C3" : break;
+				case "C4" : if(monster2HP >= 0 ) { monster2();}
+				
+				else { monsterDead();}; break; 
 				case "C5" : break;
-				case "C6" : break;
+				case "C6" :break;
 				}
 				break;
 				
@@ -1341,11 +1365,28 @@ public class Game<choiceButtonPanel> {
 				}
 				break;
 //========= MONSTER CASES ===============================================================================
-				
+			case "monsterDead":
+				switch(yourChoice) {
+				case "C1" : room2(); room3(); room5(); break;
+				case "C2" : attack();break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+			
 								
 			case "monster1":
 				switch(yourChoice) {
 				case "C1" : room2(); break;
+				case "C2" : attack();break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+				
+			case "monster2":
+				switch(yourChoice) {
+				case "C1" : room4(); break;
 				case "C2" : attack();break;
 				case "C3" : break;
 				case "C4" : break;
@@ -1400,6 +1441,16 @@ public class Game<choiceButtonPanel> {
 				
 				case "C1" : playerAttack(); break;
 				case "C2" : room2();  break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+				
+			case "attack2":
+				switch(yourChoice) {
+				
+				case "C1" : playerAttack(); break;
+				case "C2" : room4();  break;
 				case "C3" : break;
 				case "C4" : break;
 				}

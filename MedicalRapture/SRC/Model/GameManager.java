@@ -51,12 +51,30 @@ public String SearchRoom() {
 }
 
 //battle monster
+public String battleMonster(Player player, Monster monster) {
+	//
+	return "";
+}
 
 //examine room
-
+public String ExamineRoom() {
+	//call Room.examineRoom
+	return "";
+}
 //drop item 
+public void dropItem(int slot) {
+	player.inventory[slot] = null;
+}
+
 //use item
+public String useItem(int slot) {
+	return player.inventory[slot].Use();
+}
 //Equip item
+public void EquipItem(int slot) {
+	if (layer.inventory[slot].is)
+	player.inventory[slot].equipped = true
+}
 //un-equip item
 //new game
 //save game

@@ -19,10 +19,10 @@ public class Room {
     public static int east;
     public static int south;
     public static int west;
-	
+	public static Puzzle puzzle;
     
     public Room(String id, String name, String description, Item item, Monster[] monsters, String roomItems,  int north,
-			int east, int south, int west) {
+			int east, int south, int west, Puzzle puzzle, String examine) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,6 +34,8 @@ public class Room {
 		this.east = east;
 		this.south = south;
 		this.west = west;
+		this.puzzle = puzzle;
+		
 		
 	}
     
@@ -109,7 +111,10 @@ public class Room {
 	}
 
 	
-
+   public String examineRoom() {
+	   return "";
+   }
+   
 	
     
    

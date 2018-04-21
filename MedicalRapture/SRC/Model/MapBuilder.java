@@ -1,22 +1,26 @@
 package Model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class MapBuilder {
 
 
-	public static main void(String []args){
+	public static void main(String []args){
 		Room [] map = new Room[32];
 		Monster[] monsters = new Monster[15]; // not sure how many monsters
 		Item[] items = new Item[20]; //not sure how many monsters
 		Puzzle[] puzzles = new Puzzle[10];//not sure how many monsters
 		
 		//Room(String id, String name, String description, Item item, Monster[] monsters, String roomItems,  int north,
-		//int east, int south, int west, Puzzle puzzle)
+		//int east, int south, int west, Puzzle puzzle, String Examine)
 
-		map[0] = new Room(0, "", "",null,null, 0, 0, 0, 0, null);
+		map[0] = new Room("", "", "",null,monsters , "", 0, 0, 0,0, null, "");
 		
 		map[1] = new Room("R00", "Player Room",
 				"This room contains a bed, tv and night stand next to the window. This is where the player wakes up after surgery and finds out that the hospital has been attacked by zombies while they have been asleep.",
-				Item item, Monster[] monsters, 0, 2, 0, 11, null); 
+				 items,  monsters, 0, 2, 0, 11, null, "nothing"); 
 		
 		map[2] = new Room("R01", "Patient Room","This room contains twin beds and a tv. One land-line rests in between the two beds. The first bed is empty.The second bed contains an infected patient. Risk trying to call for help or proceed to the next room.", "telephoneLine",
 				Item item, Monster[] monsters, 0 ,3 , 11,0);
@@ -105,10 +109,53 @@ public class MapBuilder {
 		map[30] = new Room("R29", "Mortuary" , "The mortuary is dim with body drawers amongst the walls. Other than that, it is empty, this may be a trap or it may be a home-run to the exit. As the user tries to move forward or tries to exit the zombies rise from the body drawers all at once at a constant rate", Item item,
 				Monster[] monsters north, 0, south, 0);
 	}
+
+
+public void createFiles(String[] array, String filename )throws IOException
+{
+    
+   
+    int size = readFileIntoArray (array, fileName);
+    int size2 = readFileIntoArray2 (nouns);
+        String adjective = getAdjective(adjectives, size);
+    String noun = getNoun(nouns, size2);
+    printResults(adjectives, nouns, adjective, noun );
 }
 
+public static int readFileIntoArray (String[] adjectives, String fileName)throws IOException
+{ 
+    Scanner fileScan= new Scanner(fileName+".txt");
+    int count = 0; 
+    while (fileScan.hasNext())
+    {
+        adjectives[count]=fileScan.nextLine();
+       count++;
+       }
+    return count;
+    }
+
+public static int readFileIntoArray2(String[] nouns, String fileName)throws IOException
+{
+    Scanner fileScan= new Scanner(fileName+".txt");
+    int count = 0; 
+    while (fileScan.hasNextLine())
+    {
+        nouns[count]=fileScan.nextLine();
+        count++;
+    }
+    return count;
+    }
 	
 	//fileio.write(map);
+public void ArrayWriter(String [] array, String fileName  ) throws IOException {
+	FileWriter fw = new FileWriter(fileName+".txt");
+    String strs[] = { "com", "exe", "doc" };
+
+    for (int i = 0; i < strs.length; i++) {
+      fw.write(strs[i] + "\n");
+    }
+    fw.close();
+  }
 }
 
-}
+

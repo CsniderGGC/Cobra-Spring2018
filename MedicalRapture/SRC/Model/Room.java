@@ -4,7 +4,7 @@ public class Room {
     	private static String id;
 	public static String name;
     private static String description;
-    Item item;
+    Item [] item = new Item[2];
     Monster[] monsters = new Monster[5];
     
    
@@ -21,7 +21,7 @@ public class Room {
     public static int west;
 	public static Puzzle puzzle;
     
-    public Room(String id, String name, String description, Item item, Monster[] monsters, String roomItems,  int north,
+    public Room(String id, String name, String description, Item[] item, Monster[] monsters, String roomItems,  int north,
 			int east, int south, int west, Puzzle puzzle, String examine) {
 		super();
 		this.id = id;

@@ -72,10 +72,15 @@ public String useItem(int slot) {
 }
 //Equip item
 public void EquipItem(int slot) {
-	if (layer.inventory[slot].is)
-	player.inventory[slot].equipped = true
+	if (player.inventory[slot].isEquipable)
+	player.inventory[slot].equipped = true;
 }
 //un-equip item
+public void UnequipItem(int slot){
+	if (player.inventory[slot].isEquipable)
+	player.inventory[slot].equipped = true;
+}
+
 //new game
 //save game
 //Quit game

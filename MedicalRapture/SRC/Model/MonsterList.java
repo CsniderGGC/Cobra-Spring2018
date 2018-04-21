@@ -1,4 +1,4 @@
- package medicalRaptureMain;
+ package Model;
 
 import java.util.ArrayList;
 

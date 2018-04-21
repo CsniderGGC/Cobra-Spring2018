@@ -1,4 +1,4 @@
-package medicalRaptureMain;
+package Model;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class ItemList {
 				"A full bottle of bleach");
 		
 		Item holyWater = new Item("Holy Wa-ter", 0, 0, maxHit + 25,
-				"A priest’s small vile of holy water");
+				"A priestï¿½s small vile of holy water");
 		
 		Item gun = new Item("Gun", 0, 0, maxHit + 35,
 				"A loaded gun");

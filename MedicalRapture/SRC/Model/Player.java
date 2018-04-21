@@ -1,6 +1,5 @@
 package Model;
 
-
 public class Player extends Character {
 	public static  int maxHp = 100;
 	public static int maxHit = 30;

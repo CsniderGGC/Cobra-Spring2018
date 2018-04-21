@@ -74,14 +74,15 @@ public class MapBuilder {
 				Monster[] monsters, 0, east , south , 0);	
 				
 		map[19] = new Room("R18", "Physical Therapy" , "There is a wounded/infected therapist pos-ing as a normal person, they try to help but soon after they attack. If you look around you will see a weight station and an area designated for help-ing his patients.", Item item,
-				Monster[] monsters north, east , 0 , 0);
+				Monster[] monsters, north, east , 0 , 0);
 		
 		map[20] = new Room("R19", "Ultrasound Room" , "This room contains a dead patient lying in the bed that was anxiously awaiting an ultrasound. The ultrasound device is right beside the bed. This room contains absolutely no windows and one ugly painting", Item item,
-				Monster[] monsters 0, east , south, 0);
+				Monster[] monsters, 0, east , south, 0);
 		
 		map[21] = new Room("R20", "Library Room" , "Rows and rows filled with high level book-shelves. There are two windows, two exit doors and an area designed for quiet study on top of bean bag chairs.", Item item,
-				Monster[] monsters 0, east , south, 0);
+				Monster[] monsters, 0, east , south, 0);
 		
+
 		map[22] = new Room("R21", "Top Level Stairwell" , "Very dark. If the player earned the lantern they can see the zombie wait-ing for them at the bot-tom of the stairs. If the player does not have a lantern their chances of making it out untouched is 50/50.", 
 				Item item, Monster[] monsters north, 0, south, 0);
 		
@@ -96,18 +97,72 @@ public class MapBuilder {
 		
 		map[26] = new Room("R25", "Chapel" , "This room is full of pews and 1 scared patient (un-infected) praying. Hints to why the doors were locked. You may proceed to the cafeteria. However, may solve a riddle for holy water if you choose...", 
 				Item item, Monster[] monsters 0, south, 0, west);
+
+		map[22] = new Room("R21", "Top Level Stairwell" , "Very dark. If the player earned the lantern they can see the zombie wait-ing for them at the bot-tom of the stairs. If the player does not have a lantern their chances of making it out untouched is 50/50.", Item item,
+				Monster[] monsters, north, 0, south, 0);
+		
+		//Lobby 1
+		map[23] = new Room("R22", "Lobby" , "There is an empty lobby if flooded with zombies limping around pushing over chairs and vending machines. The en-trance/exit is boarded off. The player must tiptoe to the security desk/office. ", Item item,
+				Monster[] monsters, 0, east, south, west);
+		
+		map[24] = new Room("R23", "Security" , "You've stumbled upon the hospital’s safe zone. Our security urges to protect and serve the safety of …. Themselves! Check it out if you hope to gain your own protec-tion. ", Item item,
+				Monster[] monsters, north, 0, south, 0);
+		
+		map[25] = new Room("R24", "Gift Shop" , " Blood, chips, weapons, tissue, soda, you name it! We got what you want. However, both doors are locked and a riddle must be answered to receive a key.", Item item,
+				Monster[] monsters, north, 0, south, 0);
+		
+		map[26] = new Room("R25", "Chapel" , "This room is full of pews and 1 scared patient (un-infected) praying. Hints to why the doors were locked. You may proceed to the cafeteria. However, may solve a riddle for holy water if you choose...", Item item,
+				Monster[] monsters, 0, south, 0, west);
+
 		
 		map[27] = new Room("R26", "Cafe" , "Welcome to the hot cafe! There are two stations, American bistro and piz-za. Aluminum trays hold the food and black cush-ioned chairs hold your butts as you stuff your face.", Item item,
-				Monster[] monsters north, 0, south, 0);
+				Monster[] monsters, north, 0, south, 0);
 		
 		map[28] = new Room("R27", "Janitor Closet" , "A small but useful room for proper storage. There's a rack for hang-ing clothes, a rack for cleaning supplies and creme colored lockers for the workers.", Item item,
-				Monster[] monsters north, 0, south, 0);
+				Monster[] monsters, north, 0, south, 0);
 		
 		map[29] = new Room("R28", "Lower Level Stairwell" , "This stairwell is well lite with no zombies. There are health packs and weapons on the stairs. The player must choose what items they would like to bring to the final level.", Item item,
-				Monster[] monsters north, 0, south, 0);
+				Monster[] monsters, 0, east, south, 0);
 		
+		//Mortuary 1 breaks room in half
 		map[30] = new Room("R29", "Mortuary" , "The mortuary is dim with body drawers amongst the walls. Other than that, it is empty, this may be a trap or it may be a home-run to the exit. As the user tries to move forward or tries to exit the zombies rise from the body drawers all at once at a constant rate", Item item,
-				Monster[] monsters north, 0, south, 0);
+				Monster[] monsters, north, 0, south, 0);
+		
+		map[31] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[32] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[33] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[34] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[35] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[36] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[37] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[38] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[39] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[40] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[41] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[42] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[43] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[44] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[45] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[46] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[47] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[48] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[49] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		map[50] = new Room("", "Hallway", "Contains zombies walking up and down the very dim halls. Must move quickly to the next room whenever in the hallway...",item, monsters, north, east, south, west);
+		
+		
+		//Lobby 2
+		map[51] = new Room("", "Lobby" , "There is an empty lobby if flooded with zombies limping around pushing over chairs and vending machines. The entrance/exit is boarded off. The player must tiptoe to the security desk/office. ", Item item,
+				Monster[] monsters north, east, south, west);
+		
+		//Lobby 3
+		map[52] = new Room("", "Lobby" , "There is an empty lobby if flooded with zombies limping around pushing over chairs and vending machines. The entrance/exit is boarded off. The player must tiptoe to the security desk/office. ", Item item,
+				Monster[] monsters north, east, south, west);
+		
+		//Mortuary 0 breaks room in half
+		map[53] = new Room("R29", "Mortuary" , "The mortuary is dim with body drawers amongst the walls. Other than that, it is empty, this may be a trap or it may be a home-run to the exit. As the user tries to move forward or tries to exit the zombies rise from the body drawers all at once at a constant rate", Item item,
+						Monster[] monsters, north, east, 0, 0);
+		
+	
 	}
 
 
@@ -151,11 +206,13 @@ public void ArrayWriter(String [] array, String fileName  ) throws IOException {
 	FileWriter fw = new FileWriter(fileName+".txt");
     String strs[] = { "com", "exe", "doc" };
 
+
     for (int i = 0; i < strs.length; i++) {
       fw.write(strs[i] + "\n");
     }
     fw.close();
   }
 }
+
 
 

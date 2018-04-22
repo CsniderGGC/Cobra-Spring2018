@@ -4,11 +4,11 @@ public abstract class Item {
 	String itemName;
 	String abilityDiscription;
 	boolean equipable;
-<<<<<<< HEAD
+
 	String result;
 	public String Use() {
 		return result;};
-=======
+
 	
 	
 	public Item(String name, int maxHP, string itemInfo) {
@@ -46,7 +46,7 @@ public abstract class Item {
 //	public void Quit() {};
 //	public void Hint() {}; not a puzzle
 	
->>>>>>> a7579e09940c0c222381c21b33c55c42fca2a084
+
 
 
 }

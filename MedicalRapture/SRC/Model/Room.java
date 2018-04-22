@@ -81,15 +81,22 @@ public class Room {
 	public void setItem(Item item) {
 		this.item = item;
 	}
+	public int getItemCount() {
+		return item.length;
+	}
 
 	public Monster[] getMonsters() {
 		return monsters;
+	}
+	public int getMonsterCount() {
+		return monsters.length;
 	}
 
 	public void setMonsters(Monster[] monsters) {
 		this.monsters = monsters;
 	}
 
+	
 	public int getNorth() {
 		return north;
 	}

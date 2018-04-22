@@ -25,7 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+import Model.Room;
 
 import java.awt.event.ActionListener;	//for addController()
 
@@ -34,20 +34,26 @@ import java.awt.event.ActionListener;	//for addController()
 public class View implements java.util.Observer {
 
 	//attributes as must be visible within class
-	private TextField myTextField;
+	private TextField myTextField, areaDiscription;
 	private Button northButton, southButton, eastButton, westButton; 
+	
+	Room room;
 	
 	Button newGameButton = new Button("New Game");
 	Button saveGameButton = new Button("Save Game");
 	Button loadGameButton = new Button("Load Game");
 	Button quitGameButton = new Button("Quit Game");
 	
+	//Buttons for room info
+	Button searchRoom = new Button("Search Room");
+	Button examineRoom = new Button("ExamineRoom");
+	
+	//
+	Button attackMonsterButton = new Button("Attack Monster");
+	Button pickupItemsButton = new Button("Pick up Items");
+	
 
-	/*
-	 * The trivial functionality of View is 
-	 * 	a constructor which generates the GUI 
-	 * 	a method to initialize the TextField
-	 */
+
 	public View() {
 		System.out.println("View()");	
 		
@@ -71,8 +77,8 @@ public class View implements java.util.Observer {
 		frame.setVisible(true);
 		backgroundImage backing = new backgroundImage();
 		frame.add(backing);
-		myTextField 		= new TextField();
-		frame.add("Center", myTextField);
+//		myTextField 		= new TextField();
+//		frame.add("Center", myTextField);
 
 		Panel  navPanel= new Panel();
 		//north
@@ -94,7 +100,26 @@ public class View implements java.util.Observer {
 		//add nav panel to window
 		frame.add("East", navPanel);
 		
-
+//RoomInfo
+		Panel areaInfo = new Panel();
+		
+		areaDiscription.setText(
+				"Room Name:"+ room.getName() + "\n"
+				+ "Monster: " + room.getMonsterCount() + "\n"
+				+ "Items: "+ room.getItemCount() + "\n"
+				+ "Description: " + room.getDescription());
+		
+		areaInfo.add("West",areaDiscription);
+		areaInfo.add("North", searchRoom);
+		areaInfo.add("North", examineRoom);
+		areaInfo.add("South", attackMonsterButton);
+		areaInfo.add("South", pickupItemsButton);
+		frame.add("East",areaInfo);
+		
+		
+		
+		
+		
 		frame.addWindowListener(new CloseListener());	
 		frame.setSize(1080,720);
 		frame.setLocation(0,0);
@@ -129,9 +154,9 @@ public class View implements java.util.Observer {
 	 */     
 	// Called from the Model
     	public void update(Observable obs, Object obj) {
-
+    	    room = Model.GameManager.getRoom();
 		myTextField.setText(" " + ((Integer)obj).intValue());	//obj is an Object, need to cast to an Integer
-
+        
     	} //update()
 
 	

@@ -3,7 +3,7 @@ package Model;
 @SuppressWarnings("deprecation")
 public class GameManager extends java.util.Observable{
 public Room[] Map = new Room [32];
-public int playerLocation;
+public static int playerLocation;
 Player player;
 
 
@@ -30,9 +30,12 @@ public void moveSouth() {
 }
 //move east
 public void moveEast() {
+	
 	if (Map[playerLocation].getEast() != 0) {
 		playerLocation = Map[playerLocation].getEast();
 	}
+	setChanged();
+	notifyObservers(playerLocation);
 }
 
 //move west 
@@ -40,8 +43,13 @@ public void moveWest() {
 	if (Map[playerLocation].getWest() != 0) {
 		playerLocation = Map[playerLocation].getWest();
 	}
+	setChanged();
+	notifyObservers(playerLocation);
 }
 
+public static Room getRoom() {
+	return Map[playerLocation];
+}
 
 
 

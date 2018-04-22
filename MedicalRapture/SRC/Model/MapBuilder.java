@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MapBuilder {
-static Room [] map = new Room[32];
+static Room [] map = new Room[54];
 		ArrayList<Item> itemList;
 		ArrayList<Monster> monsters;
 		ArrayList<Puzzle> puzzleList;

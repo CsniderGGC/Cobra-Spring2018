@@ -2,7 +2,7 @@ package Model;
 
 @SuppressWarnings("deprecation")
 public class GameManager extends java.util.Observable{
-public Room[] Map = new Room [32];
+public Room[] Map = MapBuilder.getMap();
 public static int playerLocation;
 Player player;
 

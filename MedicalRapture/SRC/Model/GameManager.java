@@ -80,13 +80,11 @@ public String useItem(int slot) {
 }
 //Equip item
 public void EquipItem(int slot) {
-	if (player.inventory[slot].isEquipable)
-	player.inventory[slot].equipped = true;
+	player.equipItem(slot);
 }
 //un-equip item
-public void UnequipItem(int slot){
-	if (player.inventory[slot].isEquipable)
-	player.inventory[slot].equipped = true;
+public void UnequipItem(){
+	player.unEquipItem();
 }
 
 //new game

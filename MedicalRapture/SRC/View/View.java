@@ -3,7 +3,10 @@ package View;
 
 
 import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Panel;
+import java.awt.SystemColor;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -21,18 +24,26 @@ import java.util.Observable;		//for update();
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import Model.Room;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;	//for addController()
 
 
 @SuppressWarnings("deprecation")
 public class View implements java.util.Observer {
-
+	
+	
 	//attributes as must be visible within class
 	private TextField myTextField, areaDiscription;
 	private Button northButton, southButton, eastButton, westButton; 
@@ -77,8 +88,8 @@ public class View implements java.util.Observer {
 		frame.setVisible(true);
 		backgroundImage backing = new backgroundImage();
 		frame.add(backing);
-//		myTextField 		= new TextField();
-//		frame.add("Center", myTextField);
+		myTextField 		= new TextField();
+		frame.add("Center", myTextField);
 
 		Panel  navPanel= new Panel();
 		//north
@@ -103,18 +114,18 @@ public class View implements java.util.Observer {
 //RoomInfo
 		Panel areaInfo = new Panel();
 		
-		areaDiscription.setText(
-				"Room Name:"+ room.getName() + "\n"
-				+ "Monster: " + room.getMonsterCount() + "\n"
-				+ "Items: "+ room.getItemCount() + "\n"
-				+ "Description: " + room.getDescription());
+//		areaDiscription.setText(
+//				"Room Name:"+ room.getName() + "\n"
+//				+ "Monster: " + room.getMonsterCount() + "\n"
+//				+ "Items: "+ room.getItemCount() + "\n"
+//				+ "Description: " + room.getDescription());
 		
-		areaInfo.add("West",areaDiscription);
-		areaInfo.add("North", searchRoom);
-		areaInfo.add("North", examineRoom);
-		areaInfo.add("South", attackMonsterButton);
-		areaInfo.add("South", pickupItemsButton);
-		frame.add("East",areaInfo);
+//		areaInfo.add("West",areaDiscription);
+//		areaInfo.add("North", searchRoom);
+//		areaInfo.add("North", examineRoom);
+//		areaInfo.add("South", attackMonsterButton);
+//		areaInfo.add("South", pickupItemsButton);
+//		frame.add("East",areaInfo);
 		
 		
 		
@@ -135,26 +146,9 @@ public class View implements java.util.Observer {
 		
 		
 
-	/*
-	 * The interesting functionality of View communicates with the controller and the model. 
-	 * 		1- a method addController(ActionListener controller), which attaches the controller as a listener to the button
-	 * 		2- the magic part, update(), which receives the status message from model 
-	 * 
-	 * How does myView.update() get updated? 
-	 * 	 (It all happens inside the instance Observable:myModel.) 
-     *    model changes state when the method Model:incrementValue() is executed (by the controller). 
-     *    After first changing the model's state, Observable:setChanged() changes the flag Observable:changed to true. 
-     *    next Model:notifyObservers(counter) is run. 
-     *    notifyObservers(counter) is a method of Observable. 
-     *    notifyObservers() checks that changed is true, sets it to false, 
-     *    looks up the vector of observers, in our case finding myView, 
-     *    and then runs myView.update(Observable myModel, Object (Integer)counter). 
-     *    myView now has the reference to the observable myModel and a reference to its (new) status. 
-     *    Subsequent commands in update() present the model's (new) status to the user.
-	 */     
-	// Called from the Model
+	
     	public void update(Observable obs, Object obj) {
-    	    room = Model.GameManager.getRoom();
+    	   // room = Model.GameManager.getRoom();
 		myTextField.setText(" " + ((Integer)obj).intValue());	//obj is an Object, need to cast to an Integer
         
     	} //update()

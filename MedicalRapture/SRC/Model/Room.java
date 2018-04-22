@@ -20,8 +20,25 @@ public class Room {
     public static int south;
     public static int west;
 	public static Puzzle puzzle;
+	public static String examine;
     
-    public Room(String id, String name, String description, Item[] item, Monster[] monsters, String roomItems,  int north,
+	public Room(String id, String name, String description, Item[] item, Monster[] monsters,  int north,
+			int east, int south, int west) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.item = item;
+		this.monsters = monsters;
+		this.north = north;
+		this.east = east;
+		this.south = south;
+		this.west = west;
+		
+	}
+	
+	
+	
+	public Room(String id, String name, String description, Item[] item, Monster[] monsters, String roomItems,  int north,
 			int east, int south, int west, Puzzle puzzle, String examine) {
 		super();
 		this.id = id;
@@ -35,7 +52,7 @@ public class Room {
 		this.south = south;
 		this.west = west;
 		this.puzzle = puzzle;
-		
+		this.examine = examine;
 		
 	}
     
@@ -74,11 +91,11 @@ public class Room {
 		this.description = description;
 	}
 
-	public Item getItem() {
+	public Item[] getItem() {
 		return item;
 	}
 
-	public void setItem(Item item) {
+	public void setItem(Item[] item) {
 		this.item = item;
 	}
 	public int getItemCount() {

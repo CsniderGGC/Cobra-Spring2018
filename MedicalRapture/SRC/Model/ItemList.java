@@ -98,4 +98,7 @@ public class ItemList {
 		
 		
 	}
+	public ArrayList<Item> GetItemsList() {
+		return itemList;
+	}
 }

@@ -6,16 +6,14 @@ public abstract class Item {
 	boolean equipable;
 
 	String result;
-	public String Use() {
-		return result;};
-
 	
-	
-	public Item(String name, int maxHP, string itemInfo) {
+   public Item(String name, int maxHP, string itemInfo) {
 		super(maxHP);
 		this.itemInfo = monsterInfo;
 	}
-
+   
+    public String Use() {
+		return result;};
 	public String getName() {
 		return name;
 	}

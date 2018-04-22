@@ -53,6 +53,8 @@ public class RunRapture {
 			myView.addMoveSouth(southController);
 			myView.addMoveEast(eastController);
 			myView.addMoveWest(westController);
+			
+			myModel.Map = Model.MapBuilder.getMap();
 		} //RunMVC()
 
 }

@@ -315,7 +315,7 @@ public class Game<choiceButtonPanel> {
 	}
 	
 	public void playerSetup() {
-		playerHP = 100;
+		newPlayerHP = 100;
 		monsterHP = 50;
 		
 		
@@ -336,7 +336,7 @@ public class Game<choiceButtonPanel> {
 
 	
 	public void gameReset() {
-	playerHP =100;
+	newPlayerHP =100;
 	monsterHP = 0;
 			;
 	position = "gameReset";
@@ -353,12 +353,12 @@ public class Game<choiceButtonPanel> {
 	//========= STARTING ROOM METHOD ===============================================================================================================
 	
 		public void playerStartingRoom() {
-			playerHP=100;
+			playerHP=newPlayerHP;
 			position = "playerStartingRoom";
 			mainTextArea.setText("STARTING ROOM: \n\nYou awake after a surgery and find out that the hospital has "
 					+ "been attacked by zombies.\n You are in this "
 					+ " room that contains a bed, tv and night stand next to the window. \n\n What is your choice?");
-			//hpLabelNumber.setText("" + playerHP);
+			hpLabelNumber.setText("" + playerHP);
 			choice1.setText("Examine Room");
 			choice2.setText("Map");
 			choice3.setText("");
@@ -594,20 +594,7 @@ public void hallway() {
 			choice5.setText("");
 		}
 			
-			public void addedItem2() {
-				//monster1HP = 30;
-				position = "addedItem2";
-				mainTextArea.setText("You already added " + foundItem );
-				
-				choice1.setText("Continue");
-				choice2.setText("");
-				choice3.setText("");
-				choice4.setText("");
-				choice5.setText("");
-				
-				
-				
-			}
+		
 			
 			
 			public void monster1() {
@@ -818,7 +805,7 @@ public void hallway() {
 	public void room3() {
 		position = "room3";
 		mainTextArea.setText("ROOM 3: \n\nThe shades of the win-dow have been lowered \n\n a dead patient lies in their bed as well as a dead security guard lay-ing on the floor. \n\nA bag rests on the table contain-ing numerous items. \n\nPlayer can proceed freely with the option to turn down item or add to their array of items."
-				+ "\n\n ENCOUNTER MONSTER." );
+				+ "" );
 		
 		choice1.setText("Search Room");
 		choice2.setText("Map");
@@ -857,13 +844,13 @@ public void hallway() {
 				"\n" + 
 				 
 				"Doors are bul-letproof, w/ bulletproof windows....\n" + "\n"+
-				"THERE ARE MONSTER and ARTIFACTS " );
+				"There is ARTIFACTS " );
 		//hpLabelNumber.setText("" + playerHP);
 		choice1.setText("Move South");
 		choice2.setText("Move East");
 		choice3.setText("Move North");
 		choice4.setText("Examine Artifact");
-		choice5.setText("Examine Monster");
+		choice5.setText("");
 		choice6.setText("Back to Room");
 		choice7.setText("");
 	}
@@ -945,12 +932,12 @@ public void hallway() {
 				"\r\n" + 
 				"Both \r\n" + 
 				"Doors are bul-letproof, w/ bulletproof windows....\r\n" + 
-				"" );
+				"\n"+"There is a Monster no Artifact" );
 		//hpLabelNumber.setText("" + playerHP);
 		choice1.setText("Move South");
 		choice2.setText("Move East");
 		choice3.setText("Move North");
-		choice4.setText("Examine Artifact");
+		choice4.setText("");
 		choice5.setText("Examine Monster");
 		choice6.setText("Back to Room");
 		choice7.setText("");
@@ -1066,7 +1053,7 @@ public void hallway() {
 			position = "room5";
 			mainTextArea.setText("ROOM 5: \n\nNo furniture in the room. One window letting in the sunset. "
 					+ "\nHowever, D10 & D11 are locked. "
-					+ "\nA riddle must be completed to proceed.." );
+					+ "\n \n \n A riddle must be completed to proceed." );
 			
 			choice1.setText("Examine Room");
 			choice2.setText("Map");
@@ -1078,6 +1065,107 @@ public void hallway() {
 			
 			
 		}
+		
+		public void hallway5() {
+			
+			position = "hallway5";
+			mainTextArea.setText("You are in hallway. You need to get back to room quickly.");
+			//hpLabelNumber.setText("" + playerHP);
+			choice1.setText("Back to Room");
+			choice2.setText("Map");
+			choice3.setText("");
+			choice4.setText("");
+			choice5.setText("");
+			choice6.setText("");
+			choice7.setText("");
+		}
+		
+		public void searchRoom5() {
+			
+			position = "searchRoom5";
+			mainTextArea.setText("ROOM 5 :Exits: 3 exits\r\n" + 
+					"\r\n" + 
+					"D09: Leads to the previous patient’s room (south).\r\n" + 
+					"\r\n" + 
+					"D10: Leads to the hallway (east). \r\n" + 
+					"\r\n" + 
+					"D11: Leads to the next pa-tient’s room (north).\r\n" + 
+					"\r\n" + 
+					"Both \r\n" + 
+					"Doors are bul-letproof, w/ bulletproof windows....\r\n" + "\n"+
+					"THERE IS PUZZLE" );
+			//hpLabelNumber.setText("" + playerHP);
+			choice1.setText("Move South");
+			choice2.setText("Move East");
+			choice3.setText("Move North");
+			choice4.setText("Examine Puzzle");
+			choice5.setText("--");
+			choice6.setText("Back to Room");
+			choice7.setText("");
+		}
+		
+		
+            public void puzzle1() {
+			
+			position = "puzzle1";
+			mainTextArea.setText("Puzzle 1: Take off my skin-I won’t cry, but you will! What am I?" + 
+					"" );
+			//hpLabelNumber.setText("" + playerHP);
+			choice1.setText("Apple");
+			choice2.setText("Orange");
+			choice3.setText("Onion");
+			choice4.setText("--");
+			choice5.setText("--");
+			choice6.setText("Back to Room");
+			choice7.setText("");
+		}
+		
+            public void puzzle1choice1() {
+    			
+    			position = "puzzle1choice1";
+    			mainTextArea.setText("Puzzle 1: Wrong answer. Please try again." + 
+    					"" );
+    			//hpLabelNumber.setText("" + playerHP);
+    			choice1.setText("Back to puzzle");
+    			choice2.setText("Quit puzzle");
+    			choice3.setText("");
+    			choice4.setText("--");
+    			choice5.setText("--");
+    			choice6.setText("Back to Room");
+    			choice7.setText("");
+    		}
+            
+            	public void puzzle1choice2() {
+    			
+    			position = "puzzle1choice2";
+    			mainTextArea.setText("Puzzle 1: Wrong answer. Please try again." + 
+    					"" );
+    			//hpLabelNumber.setText("" + playerHP);
+    			choice1.setText("Back to puzzle");
+    			choice2.setText("Quit puzzle");
+    			choice3.setText("");
+    			choice4.setText("--");
+    			choice5.setText("--");
+    			choice6.setText("Back to Room");
+    			choice7.setText("");
+    		}
+		
+            	public void puzzle1choice3() {
+        			
+        			position = "puzzle1choice3";
+        			mainTextArea.setText("Puzzle 1: Correct answer. You may proceed to next room." + 
+        					"" );
+        			//hpLabelNumber.setText("" + playerHP);
+        			choice1.setText("Proceed to Next Room");
+        			choice2.setText("");
+        			choice3.setText("");
+        			choice4.setText("");
+        			choice5.setText("");
+        			choice6.setText("Back to Room");
+        			choice7.setText("");
+        		}
+            	
+            	
 //-----------------------------------------------------------------------------------------------------------------------------	
 				public void room6() {
 					position = "room6";
@@ -1092,6 +1180,148 @@ public void hallway() {
 					choice5.setText("");
 					choice6.setText("");
 					choice7.setText("");
+					
+					
+				}
+				
+				
+				public void hallway6() {
+					
+					position = "hallway6";
+					mainTextArea.setText("You are in hallway. You need to get back to room quickly.");
+					//hpLabelNumber.setText("" + playerHP);
+					choice1.setText("Back to Room");
+					choice2.setText("Map");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+					choice6.setText("");
+					choice7.setText("");
+				}
+				
+				public void searchRoom6() {
+					
+					position = "searchRoom6";
+					mainTextArea.setText("ROOM 6 : Exits: 3 exits\r\n" + 
+							"\r\n" + 
+							"D11: Leads to the previous patient’s room (south).\r\n" + 
+							"\r\n" + 
+							"D12:  Leads to the hallway (east). \r\n" + 
+							"\r\n" + 
+							"D13: Leads to the next pa-tient’s room (north).\r\n" + 
+							"\r\n" + 
+							"Both \r\n" + 
+							"Doors are bul-letproof, w/ bulletproof windows....\r\n" + 
+							"" );
+					//hpLabelNumber.setText("" + playerHP);
+					choice1.setText("Move South");
+					choice2.setText("Move East");
+					choice3.setText("Move North");
+					choice4.setText("");
+					choice5.setText("Examine Monster");
+					choice6.setText("Back to Room");
+					choice7.setText("");
+				}
+				
+				
+				
+
+				public void monster3() {
+					position = "monster3";
+					monster3HP = 40;
+					mainTextArea.setText("Monster HP: " + monster3HP + "\n\nPatient Zombies");
+					
+					choice1.setText("Go Back");
+					choice2.setText("Fight Monster");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+					
+				}
+				
+				public void attack3() {
+					monster3HP =40;
+					position = "attack3";
+					choice1.setText("attack");
+					choice2.setText("flee");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+						mainTextArea.setText(  "\n\n Monster HP: "+ monster3HP + "\n\n\nATTACK or FLEE?");
+						
+				}
+
+				public void player3Attack() {
+					
+					position = "player3Attack";
+					int playerDamage =0;
+					playerDamage = new java.util.Random().nextInt(15);
+					
+					monster3HP = monster3HP - playerDamage;
+					mainTextArea.setText("\nYou attack the monster and gave " + playerDamage+ " damage!"
+											+ "\n\nMonster HP: " + monster3HP);
+					
+					choice1.setText("attack again");
+					choice2.setText("");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+				}
+				
+
+				
+				public void monster3Attack() {
+					//monster2HP =0;
+					position = "monster3Attack";
+					int monsterDamage =0;
+					monsterDamage = new java.util.Random().nextInt(15);
+					mainTextArea.setText("Monster attack you and gave  " + monsterDamage+ " damage!");
+					playerHP = playerHP - monsterDamage;
+					hpLabelNumber.setText("" + playerHP);
+					
+					choice1.setText("attack again");
+					choice2.setText("flee");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+				}
+				
+				
+				public void monster3Dead() {
+					
+					position = "monster3Dead";
+					
+					mainTextArea.setText("MONSTER IS DEAD !!!! You have defeated the monster.  " );
+					
+					
+					choice1.setText("Continue");
+					choice2.setText("");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+				}
+				
+				public void win3() {
+					position = "win3";
+					mainTextArea.setText("CONGRATULATIONS!!! \nYou killed the monster.");
+					choice1.setText("Proceed to Next Room");
+					choice2.setText("");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+					
+			}
+				
+				public void loose3() {
+					position = "loose2";
+					mainTextArea.setText("You are dead!!! \n\n GAME OVER.");
+					
+					choice1.setText("Play Again");
+					choice2.setText("Exit Game");
+					choice3.setText("");
+					choice4.setText("");
+					choice5.setText("");
+					
 					
 					
 				}
@@ -1534,6 +1764,7 @@ public void hallway() {
 				
 				public void attack29() {
 					position = "attack29";
+					monster29HP=50;
 					choice1.setText("attack");
 					choice2.setText("flee");
 					choice3.setText("");
@@ -1558,7 +1789,7 @@ public void hallway() {
 				}
 
 				public void player29Attack() {
-					monster29HP = 50;
+					
 					position = "player29Attack";
 					int playerDamage =0;
 					playerDamage = new java.util.Random().nextInt(15);
@@ -1634,32 +1865,6 @@ public void hallway() {
 	 
 	
 	
-
-	public void item2() {
-	position = "item2";
-		foundWeapon = "Knife";
-		mainTextArea.setText("You found: " + foundWeapon );
-	
-		choice1.setText("Pickup");
-		choice2.setText("Back to Room");
-		choice3.setText("");
-		choice4.setText("");
-		choice5.setText("");
-		choice6.setText("");
-	}
-	
-	public void item3() {
-		position = "item3";
-			foundWeapon = "hammer";
-			mainTextArea.setText("You found: " + foundWeapon );
-		
-			choice1.setText("Pickup");
-			choice2.setText("Back to Room");
-			choice3.setText("");
-			choice4.setText("");
-			choice5.setText("");
-			choice6.setText("");
-		}
 //========== WEAPONS ==================================================================
 	
 	
@@ -1853,8 +2058,7 @@ public void hallway() {
 			
 			case "room2Item":
 				switch(yourChoice) {
-				case "C1" : if(playerHP <(playerHP+5)) {addedItem2();}
-				else {addItem2();}break;
+				case "C1" : addItem2();break;
 				case "C2" : room2();break;
 				}  break;
 				
@@ -1996,10 +2200,10 @@ public void hallway() {
 				switch(yourChoice) {
 			case "C1": room3(); break;
 			case "C2": hallway4(); break;
-			case "C3": room4(); break;
-			case "C4": room2Item(); break;
+			case "C3": room5(); break;
+			case "C4":  break;
 			case "C5": monster2(); break;
-			case "C6": room2(); break;
+			case "C6": room4(); break;
 			
 			}	break;
 			
@@ -2034,7 +2238,7 @@ public void hallway() {
 				switch(yourChoice) {
 				case "C1" : 
 					if(monster2HP < 1) {
-						win();
+						win2();
 						
 					}
 					else {
@@ -2082,22 +2286,157 @@ public void hallway() {
 				
 				
 //==== ROOM 5 CASES =====================================================================================
-			case "5":
+			case "room5":
 				switch(yourChoice) {
-				case "C1" :  break;
+				case "C1" :  searchRoom5(); break;
 				case "C2" : roomMenu(); break;
 				} break;				
 				
+				
+			case "searchRoom5":
+				switch(yourChoice) {
+				case "C1": room4(); break;
+				case "C2": hallway5(); break;
+				case "C3": room5(); break;
+				case "C4":  puzzle1();break;
+				case "C5":  break;
+				case "C6": room5(); break;
+				} break;
+				
+				
+			case "hallway5":
+				switch(yourChoice) {
+			case "C1": room5(); break;
+			case "C2": roomMenu(); break;
+			}	break;	
+			
+			case "puzzle1":
+				switch(yourChoice) {
+			case "C1": puzzle1choice1(); break;
+			case "C2": puzzle1choice2(); break;
+			case "C3": puzzle1choice3(); break;
+			case "C6": room5(); break;
+			}	break;	
+			
+			case "puzzle1choice1":
+				switch(yourChoice) {
+			case "C1": puzzle1(); break;
+			case "C2": room5(); break;
+			case "C3":  break;
+			}	break;	
+			
+			case "puzzle1choice2":
+				switch(yourChoice) {
+			case "C1": puzzle1(); break;
+			case "C2": room5(); break;
+			case "C3":  break;
+			}	break;	
+			
+			case "puzzle1choice3":
+				switch(yourChoice) {
+			case "C1": room6(); break;
+			case "C2": break;
+			case "C3":  break;
+			}	break;	
+			
+			
 //=========================================================================================================
 				
 				
 //==== ROOM 6 CASES =====================================================================================				
 			case "room6":
 				switch(yourChoice) {
-				case "C1" :  break;
+				case "C1" : searchRoom6(); break;
 				case "C2" : roomMenu(); break;
 				} break;		
 				
+				
+			case "searchRoom6":
+				switch(yourChoice) {
+			case "C1": room5(); break;
+			case "C2": hallway6(); break;
+			case "C3": room7(); break;
+			case "C4":  break;
+			case "C5": monster3(); break;
+			case "C6": room4(); break;
+			
+			}	break;
+			
+			case "hallway6":
+				switch(yourChoice) {
+			case "C1": room6(); break;
+			case "C2": roomMenu(); break;
+			}	break;	
+				
+			
+			
+			case "monster3":
+				switch(yourChoice) {
+				case "C1" : room6(); break;
+				case "C2" : attack3();break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+				
+			case "attack3":
+				switch(yourChoice) {
+				
+				case "C1" : player3Attack(); break;
+				case "C2" : room6();  break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+				
+			case "player3Attack":
+				switch(yourChoice) {
+				case "C1" : 
+					if(monster3HP < 1) {
+						win3();
+						
+					}
+					else {
+					monster3Attack();
+					}
+				
+				 break;
+				 
+				}
+				break;
+				
+			case "monster3Attack":
+				switch(yourChoice) {
+				case "C1" : 
+					if(playerHP < 1) {
+						loose3();
+					}
+					else {
+					player3Attack(); 
+					}
+					break;
+				case "C2": room6(); break;
+				}
+				break;
+				
+				
+			case "win3":
+				switch(yourChoice) {
+				case "C1" : room7(); break;
+				case "C2" : break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
+				
+			case "loose3":
+				switch(yourChoice) {
+				case "C1" : gameReset(); break;
+				case "C2" : break;
+				case "C3" : break;
+				case "C4" : break;
+				}
+				break;
 //=========================================================================================================
 				
 				
@@ -2363,7 +2702,7 @@ public void hallway() {
 				switch(yourChoice) {
 				case "C1" : 
 					if(monster29HP < 1) {
-						win();
+						win29();
 						
 					}
 					else {
